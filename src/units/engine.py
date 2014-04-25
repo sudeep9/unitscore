@@ -32,7 +32,7 @@ class Engine:
         unitsorder = self.config.flows[self.flowname]['order']
 
         for inst in unitsorder:
-            print inst
+            print "\n", inst
             print "----------------------------------------"
             func = self.__getUnit(flowunits[inst])
             if not func(self.context):
