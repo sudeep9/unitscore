@@ -1,11 +1,20 @@
 
 
 import logging
+import argparse
 
 log = logging.getLogger(__name__)
 
 def unit_parseArgs(ctx):
-    print "Parsing args"
+    flowname, config, currentunit = ctx['flowname'], ctx['config'], ctx['currentunit']
+
+    parser = argparse.ArgumentParser()
+    for argspec in currentunit['argspec']:
+        parser.add_argument(*argspec)
+
+    parser.parser_args(ctx['input']['args'])
+
+    return True
 
 
 def unit_checkFlowConfig(ctx):

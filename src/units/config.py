@@ -34,8 +34,15 @@ units = {
 
 
 flows['configcheck'] = {
-    "order" : ['Check flows'],
+    "order" : ['Check flows', 'Parse args'],
     "units" : {
+        "Parse args" : {
+            "name"    : "Parse input args",
+            "argspec" : [
+                #name    , action , nargs, const, default, type, choices                  , required, help              , metavar, dest
+                ('--mode', 'store', None , None , 'all'  , None, ['all', 'units', 'flows'], None    , "aspects to check", None   , None)    
+            ],
+        },
         "Check flows" : {
             "name" : "Check all flow config"
         }
