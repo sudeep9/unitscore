@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 
-
 import sys
+import os.path
 import logging
 import datetime
+
+abspath = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(abspath + "/../src")
+
 import units.utils
 import units.engine
 
@@ -57,7 +61,7 @@ if __name__ == "__main__":
     setupLogging(config, flowname)
 
     engine = units.engine.Engine(config)
-    if engine.run(flowname):
+    if engine.run(flowname, sys.argv):
         print "Flow '%s' finished with success" % flowname
     else:
         print "Flow '%s' finished with error" % flowname

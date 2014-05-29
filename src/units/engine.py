@@ -52,7 +52,7 @@ class Engine:
             print "\n", inst
             print "----------------------------------------"
 
-            instconfig - flowunits[inst]
+            instconfig = flowunits[inst]
             func = self.__getunit(instconfig)
             self.__setUnitContext(instconfig)
 
